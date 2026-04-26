@@ -17,7 +17,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
 
   // 🔥 MAINTENANCE MODE (ADD)
-  const [maintenance, setMaintenance] = useState(true);
+  const [maintenance, setMaintenance] = useState(false);
 
   // 🔥 ADMIN BYPASS (ADD)
   const isAdmin = window.location.search.includes("admin");
