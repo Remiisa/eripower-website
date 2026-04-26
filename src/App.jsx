@@ -16,6 +16,12 @@ export default function App() {
   // MOBILE MENU
   const [open, setOpen] = useState(false);
 
+  // 🔥 MAINTENANCE MODE (ADD)
+  const [maintenance, setMaintenance] = useState(true);
+
+  // 🔥 ADMIN BYPASS (ADD)
+  const isAdmin = window.location.search.includes("admin");
+
   useEffect(() => {
     if (dark) {
       document.documentElement.classList.add("dark");
@@ -27,6 +33,18 @@ export default function App() {
   const toggleDark = () => {
     setDark(!dark);
   };
+
+  // 🔥 LOCK WEBSITE (ADD - TAK GANGGU CODE ASAL)
+  if (maintenance && !isAdmin) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-black text-white text-center">
+        <div>
+          <h1 className="text-3xl font-bold mb-4">Website Under Maintenance</h1>
+          <p>We are upgrading our system. Please come back later.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="font-sans min-h-screen bg-white text-black dark:bg-black dark:text-white transition duration-500">
